@@ -3,9 +3,10 @@ import './styles/style.css'
 
 import searchIcon from './assets/search-icon.png'
 import BottomLeft from './Components/BottomLeft'
-import Right from './Components/Right'
+import TodaySec from './Components/TodaySec'
 
 import sunnyBg from './assets/sunny_bg.jpg'
+import WeekSec from './Components/WeekSec'
 
 export default function App() {
   const API_KEY = '056c524235695f779327445beba09d36'
@@ -71,8 +72,10 @@ export default function App() {
               </div>
             </div>
             <div className="right">
-              <Right data={ data }/>
+              <TodaySec data={ data }/>
+              <WeekSec data={ data }/>
             </div>
+            
           </>
         ) : (
           <h1>loading...</h1>

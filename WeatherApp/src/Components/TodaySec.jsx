@@ -6,7 +6,7 @@ import humidityIcon from '../assets/humidity_icon.png'
 import pressureIcon from '../assets/pressure_icon.png'
 import visiblityIcon from '../assets/visibility_icon.png'
 
-export default function Right({ data }) {
+export default function TodaySec({ data }) {
 
     const options = { hour: 'numeric', minute: '2-digit', hour12: true }
 
@@ -131,9 +131,7 @@ export default function Right({ data }) {
 
                 </div>
             </div>
-            <div className="right-week">
-
-            </div>
+            
         </>
     )
 }

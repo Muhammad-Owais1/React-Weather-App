@@ -9,9 +9,11 @@
 
     flex-basis: 35%;
 
-    background-color: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(1px);
+    /* background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(1px); */
+    background-color: #fff;
 }
+
 
 .left-top {
     display: flex;
