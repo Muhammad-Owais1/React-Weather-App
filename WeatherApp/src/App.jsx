@@ -6,6 +6,9 @@ import BottomLeft from './Components/BottomLeft'
 import TodaySec from './Components/TodaySec'
 
 import sunnyBg from './assets/sunny_bg.jpg'
+import sunnyCloudyBg from './assets/sunny_cloudy_bg.jpg'
+import cloudyBg from './assets/cloudy_bg.jpg'
+
 import WeekSec from './Components/WeekSec'
 
 export default function App() {
@@ -15,6 +18,8 @@ export default function App() {
   const [data, setData] = useState([])
   const [errorMsg, setErrorMsg] = useState('')
   const [loading, setLoading] = useState(true)
+
+  const [bgImg, setBgImg] = useState(cloudyBg)
 
   const fetchData = async (cityName) => {
     try {
@@ -55,7 +60,7 @@ export default function App() {
       {
         !loading ? (
           <>
-          <img src={ sunnyBg } className='background' alt="" />
+          <img src={ bgImg } className='background' alt="" />
             <div className='left'>
               <div className='left-top'>
                 <div className="search-bar">
