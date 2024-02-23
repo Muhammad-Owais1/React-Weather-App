@@ -2,6 +2,9 @@ import React from 'react'
 import temperatureIcon from '../assets/temperature_icon.png'
 import windIcon from '../assets/wind_icon.png'
 import sunIcon from '../assets/sun_icon.png'
+import humidityIcon from '../assets/humidity_icon.png'
+import pressureIcon from '../assets/pressure_icon.png'
+import visiblityIcon from '../assets/visibility_icon.png'
 
 export default function Right({ data }) {
 
@@ -49,10 +52,10 @@ export default function Right({ data }) {
                                 <div className='today-card-info'>
 
                                     <div>
-                                        <h5>Speed:</h5><p>{ data.list[0].wind.speed } km/h</p>
+                                        <h5>Speed:</h5><p>{data.list[0].wind.speed} km/h</p>
                                     </div>
                                     <div>
-                                        <h5>Direction:</h5><p>{ data.list[0].wind.deg }°</p>
+                                        <h5>Direction:</h5><p>{data.list[0].wind.deg}°</p>
                                     </div>
                                 </div>
                             </div>
@@ -67,20 +70,65 @@ export default function Right({ data }) {
                                 <div className='today-card-info'>
 
                                     <div>
-                                        <h5>Sun rise:</h5><p>{ sunRise }</p>
+                                        <h5>Sun rise:</h5><p>{sunRise}</p>
                                     </div>
                                     <div>
-                                        <h5>Sun set:</h5><p>{ sunSet }</p>
+                                        <h5>Sun set:</h5><p>{sunSet}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className='today-card-row'>
-                        <div className='today-card'></div>
-                        <div className='today-card'></div>
-                        <div className='today-card'></div>
+                        <div className='today-card'>
+                            <h2>Humidity</h2>
+                            <div className="today-card-content">
+                                <div className='today-card-img'>
+                                    <img src={humidityIcon} alt="" />
+                                </div>
+                                <div className='today-card-info'>
+
+                                    <div>
+                                        <h5>Humidity:</h5><p>{data.list[0].main.humidity}%</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='today-card'>
+                            <h2>Pressure</h2>
+                            <div className="today-card-content">
+                                <div className='today-card-img'>
+                                    <img src={pressureIcon} alt="" />
+                                </div>
+                                <div className='today-card-info'>
+
+                                    <div>
+                                        <h5>Feels like:</h5><p>{data.list[0].main.pressure}mb</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div className='today-card'>
+                            <h2>Visibility</h2>
+                            <div className="today-card-content">
+                                <div className='today-card-img'>
+                                    <img src={visiblityIcon} alt="" />
+                                </div>
+                                <div className='today-card-info'>
+
+                                    <div>
+                                        <h5>Visiblity:</h5><p>{data.list[0].visibility}</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
             </div>
             <div className="right-week">
