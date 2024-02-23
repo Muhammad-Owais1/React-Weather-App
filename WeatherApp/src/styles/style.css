@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('../styles/components/left.css');
+@import url('../styles/components/right.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Montserrat;
+    font-weight: 400;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    
+    overflow: hidden;
+}
+
+#root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.background {
+    /* height: 100vh; */
+
+
+    position: absolute;
+    z-index: -10;
+}
+
