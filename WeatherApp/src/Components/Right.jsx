@@ -4,6 +4,15 @@ import windIcon from '../assets/wind_icon.png'
 import sunIcon from '../assets/sun_icon.png'
 
 export default function Right({ data }) {
+
+    const options = { hour: 'numeric', minute: '2-digit', hour12: true }
+
+    let sunSet = new Date((data.list[0].dt + data.city.sunset) * 1000)
+    sunSet = new Intl.DateTimeFormat('en-US', options).format(sunSet)
+
+    let sunRise = new Date((data.list[0].dt + data.city.sunrise) * 1000)
+    sunRise = new Intl.DateTimeFormat('en-US', options).format(sunRise)
+
     return (
         <>
             <div className="right-today">
@@ -58,10 +67,10 @@ export default function Right({ data }) {
                                 <div className='today-card-info'>
 
                                     <div>
-                                        <h5>Speed:</h5><p>{ data.list[0].wind.speed } km/h</p>
+                                        <h5>Sun rise:</h5><p>{ sunRise }</p>
                                     </div>
                                     <div>
-                                        <h5>Direction:</h5><p>{ data.list[0].wind.deg }°</p>
+                                        <h5>Sun set:</h5><p>{ sunSet }</p>
                                     </div>
                                 </div>
                             </div>
