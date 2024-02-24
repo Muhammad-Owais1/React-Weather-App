@@ -105,7 +105,7 @@ export default function TodaySec({ data }) {
                                 <div className='today-card-info'>
 
                                     <div>
-                                        <h5>Feels like:</h5><p>{data.list[0].main.pressure}mb</p>
+                                        <h5>Pressure:</h5><p>{data.list[0].main.pressure}mb</p>
                                     </div>
 
                                 </div>
