@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useLayoutEffect } from 'react'
 import './styles/style.css'
 
 import searchIcon from './assets/search-icon.png'
@@ -51,6 +51,7 @@ export default function App() {
     }
   }
 
+
   useEffect(() => {
     fetchData('karachi')
   }, [])
@@ -92,7 +93,8 @@ export default function App() {
       {
         !loading ? (
           <>
-            <img src={bgImg} className='background' alt="" />
+
+                      
             <div className='left'>
               <div className='left-top'>
                 <div className="search-bar">
@@ -112,6 +114,8 @@ export default function App() {
               <TodaySec data={data} />
               <WeekSec data={data} />
             </div>
+
+            <img src={bgImg} className='background' alt="" />
 
           </>
         ) : (

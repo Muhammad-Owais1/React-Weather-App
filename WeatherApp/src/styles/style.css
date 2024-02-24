@@ -10,10 +10,29 @@
     font-weight: 400;
 }
 
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar {
+    width: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(118, 118, 118);
+    border-radius: 10px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    background: black; 
+  }
+
 body {
     width: 100vw;
     height: 100vh;
-    overflow-x: hidden;
+    /* overflow-x:; */
+    position: relative;
 }
 
 #root {
@@ -23,10 +42,13 @@ body {
 }
 
 .background {
-    height: 130vh;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
 
+    overflow-x: hidden;
 
-    position: absolute;
     z-index: -10;
 }
 
@@ -40,21 +62,5 @@ body {
     #root {
         flex-direction: column;
         overflow: hidden;
-    }
-
-    .background {
-        height: 800px;
-    }
-}
-
-@media (max-width: 810px) {
-    .background{
-        height: 1025px;
-    }
-}
-
-@media (max-width: 630px) {
-    .background{
-        height: 1380px;
     }
 }

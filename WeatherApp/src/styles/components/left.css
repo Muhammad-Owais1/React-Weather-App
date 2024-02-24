@@ -21,12 +21,14 @@
     justify-content: center;
     flex-direction: column;
 
+    padding: 0 5px;
+
     gap: 10px;
 }
 
 .search-bar {
     margin-top: 25px;
-    width: 80%;
+    width: 95%;
     position: relative;
 }
 
@@ -71,11 +73,11 @@
     display: flex;
     align-items: baseline;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
 }
 
 .left-top-location h2 {
-    font-size: 40px;
+    font-size: 38px;
     font-weight: 300;
 }
 
