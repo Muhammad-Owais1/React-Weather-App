@@ -6,8 +6,11 @@ import BottomLeft from './Components/BottomLeft'
 import TodaySec from './Components/TodaySec'
 
 import sunnyBg from './assets/sunny_bg.jpg'
-import sunnyCloudyBg from './assets/sunny_cloudy_bg.jpg'
+import sunnyCloudyBg from './assets/sunny_cloudy_bg.png'
 import cloudyBg from './assets/cloudy_bg.jpg'
+import rainyBg from './assets/rainy_bg.jpg'
+import snowyBg from './assets/snowy_bg.jpg'
+import moonyBg from "./assets/moony_bg.jpg"
 
 import WeekSec from './Components/WeekSec'
 
@@ -19,8 +22,6 @@ export default function App() {
   const [errorMsg, setErrorMsg] = useState('')
   const [loading, setLoading] = useState(true)
 
-  const [bgImg, setBgImg] = useState(cloudyBg)
-
   const fetchData = async (cityName) => {
     try {
       const response = await fetch(
@@ -30,7 +31,7 @@ export default function App() {
       )
 
       const data = await response.json()
-        console.log(data)
+      console.log(data)
       if (!data.message) {
         setData(data);
         setLoading(false);
@@ -55,12 +56,43 @@ export default function App() {
   }, [])
 
 
+  const [bgImg, setBgImg] = useState(moonyBg)
+
+  useEffect(() => {
+    if (data && data.city) {
+
+
+      let currentTime = new Date().getTime() / 1000;
+      if (currentTime > data.city.sunrise && currentTime < data.city.sunset) {
+
+        if (data.list[0].weather[0].main == "Snow") {
+          setBgImg(snowyBg)
+        }
+        else if (data.list[0].weather[0].main == "Clouds") {
+          setBgImg(cloudyBg)
+        }
+        else if (data.list[0].weather[0].main == "Rain") {
+          setBgImg(rainyBg)
+        }
+        else if (data.list[0].weather[0].main == "Clear") {
+          setBgImg(sunnyBg)
+        }
+        else {
+          setBgImg(sunnyCloudyBg)
+        }
+      }
+      else {
+        setBgImg(moonyBg)
+      }
+    }
+  }, [data])
+
   return (
     <>
       {
         !loading ? (
           <>
-          <img src={ bgImg } className='background' alt="" />
+            <img src={bgImg} className='background' alt="" />
             <div className='left'>
               <div className='left-top'>
                 <div className="search-bar">
@@ -73,14 +105,14 @@ export default function App() {
                 </div>
               </div>
               <div className="left-bottom">
-                <BottomLeft data={ data }/>
+                <BottomLeft data={data} />
               </div>
             </div>
             <div className="right">
-              <TodaySec data={ data }/>
-              <WeekSec data={ data }/>
+              <TodaySec data={data} />
+              <WeekSec data={data} />
             </div>
-            
+
           </>
         ) : (
           <h1>loading...</h1>

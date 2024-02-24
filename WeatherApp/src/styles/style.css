@@ -13,8 +13,6 @@
 body {
     width: 100vw;
     height: 100vh;
-    
-    overflow: hidden;
 }
 
 #root {
@@ -24,10 +22,38 @@ body {
 }
 
 .background {
-    /* height: 100vh; */
+    height: 130vh;
 
 
     position: absolute;
     z-index: -10;
 }
 
+@media (max-width: 948px) {
+    body {
+        height: auto;
+        overflow: scroll;
+        overflow-x: hidden;
+    }
+
+    #root {
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    .background {
+        height: 800px;
+    }
+}
+
+@media (max-width: 810px) {
+    .background{
+        height: 1025px;
+    }
+}
+
+@media (max-width: 630px) {
+    .background{
+        height: 1380px;
+    }
+}
